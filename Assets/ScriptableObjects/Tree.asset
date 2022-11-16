@@ -24,4 +24,7 @@ MonoBehaviour:
   PlantSprite: {fileID: 21300000, guid: f82dfc5fc3c5a8f4080a3550427019c8, type: 3}
   GrowthTime: 10
   Score: 10
-  Prefab: {fileID: 0}
+  PlantPrefab: {fileID: 4625364079059454034, guid: b1ff6e00be3a74c47b2be7e6462b87e0,
+    type: 3}
+  SproutPrefab: {fileID: 7266687959212982485, guid: 01cc9b3ff2551904f8a9e0d59837a1c0,
+    type: 3}

@@ -27,7 +27,6 @@ namespace BotAI
         public void Execute()
         {
             _botAnimator.PlayWorking();
-            _botAnimator.StopMoving();
             _navMeshAgent.enabled = false;
             _coroutineRunner.StartCoroutine(Working(_workingTime));
         }

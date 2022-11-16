@@ -22,7 +22,7 @@ namespace BotAI
 
         public void PlayWorking() => _animator.SetTrigger(_workingHash);
 
-        public void PlayIdle() => _animator.SetTrigger(_idleHash);
+        public void PlayIdle (bool isIdle) => _animator.SetBool(_idleHash, isIdle);
 
     }
 }

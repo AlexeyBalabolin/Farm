@@ -15,7 +15,7 @@ namespace BotAI
         private Vector3 _target;
         private ICoroutineRunner _coroutineRunner;
         private readonly float _checkTime = 0.5f;
-        private readonly float _distanceEps = 0.1f;
+        private readonly float _distanceEps = 0.2f;
 
         public FollowingStrategy()
         {
@@ -33,6 +33,7 @@ namespace BotAI
 
         public virtual void Execute()
         {
+            _botAnimator.PlayIdle(false);
             _navMeshAgent.enabled = true;
             _navMeshAgent.SetDestination(_target);
             _coroutineRunner.StartCoroutine(Following());

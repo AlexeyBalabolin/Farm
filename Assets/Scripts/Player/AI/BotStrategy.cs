@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 namespace BotAI
 {
@@ -10,6 +11,8 @@ namespace BotAI
     [RequireComponent(typeof(BotAnimator))]
     public class BotStrategy : MonoBehaviour, ICoroutineRunner
     {
+        public UnityEvent OnEndPlanting;
+
         [SerializeField]
         private float _workingTime, _followingSpeed;
 
@@ -51,7 +54,8 @@ namespace BotAI
             {
                 [typeof(IdleStrategy)] = new IdleStrategy(_navMesh, _botAnimator),
                 [typeof(FollowingStrategy)] = new FollowingStrategy(_navMesh, _botAnimator, Target, () => ActiveStrategy = _startegies[typeof(WorkingStrategy)], this),
-                [typeof(WorkingStrategy)] = new WorkingStrategy(_navMesh, _botAnimator, _workingTime, () => ActiveStrategy = _startegies[typeof(IdleStrategy)], this)
+                [typeof(WorkingStrategy)] = new WorkingStrategy(_navMesh, _botAnimator, _workingTime, () => 
+                    {ActiveStrategy = _startegies[typeof(IdleStrategy)]; OnEndPlanting?.Invoke(); }, this)
             };
 
             ActiveStrategy = _startegies[typeof(IdleStrategy)];

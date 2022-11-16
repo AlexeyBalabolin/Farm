@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using BotAI;
+using System.Linq;
 
 namespace UI
 {
@@ -63,6 +64,7 @@ namespace UI
             }
             _closeButton.onClick.RemoveAllListeners();
             _closeButton.onClick.AddListener(() => ClosePlantWindow(activeCell));
+            ShowPlantDescription(_grownPlantDictionary.First(), activeCell);
         }
 
         private void ShowPlantDescription(KeyValuePair<Button,PlantData> keyValuePair, Cell activeCell)
@@ -74,11 +76,16 @@ namespace UI
         }
 
         private void GrownNewPlant(PlantData plantData, Cell activeCell)
-        {
-            _gameFactory.CreateGameobjectAtPoint(plantData.Prefab, activeCell.transform);
+        {            
             activeCell.IsFree = false;
             ClosePlantWindow(activeCell);
             WalkPlayer(activeCell.transform.position);
+            _botStrategy.OnEndPlanting.RemoveAllListeners();
+            _botStrategy.OnEndPlanting.AddListener( () => 
+            { 
+                Sprout sprout = _gameFactory.CreateGameobjectAtPoint(plantData.SproutPrefab, activeCell.transform).GetComponent<Sprout>();
+                sprout.StartGrown(plantData.GrowthTime, plantData.PlantPrefab, _gameFactory);
+            });
         }
 
         private void WalkPlayer(Vector3 target)

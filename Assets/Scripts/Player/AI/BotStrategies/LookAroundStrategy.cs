@@ -17,7 +17,7 @@ namespace BotAI
 
         public void Execute()
         {
-            _botAnimator.PlayIdle();
+            _botAnimator.PlayIdle(true);
             _botAnimator.StopMoving();
             _navMeshAgent.enabled = false;
         }
