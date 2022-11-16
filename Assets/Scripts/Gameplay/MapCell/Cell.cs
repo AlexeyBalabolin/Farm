@@ -1,13 +1,29 @@
-using System;
+using Infrastructure.Services;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Gameplay
 {
-    public class Cell : MonoBehaviour, IClickable
+    public class Cell : MonoBehaviour, IClickable, IPointerExit
     {
-        public event Action OnClick;
-        public event Action OnChanged;
-        public void Click() => OnClick?.Invoke();
+        public UnityEvent OnClick,OnPointerExit;
+
+        private PlantsCreator _plantsCreator;
+
+        public bool IsFree { get; set; } = true;
+
+        private void Start() => _plantsCreator = ServiceLocator.Container.GetService<PlantsCreator>();
+
+        public void Click()
+        {
+            if(IsFree)
+            {
+                _plantsCreator.ActiveCell = this;
+                OnClick?.Invoke();
+            }
+        }
+
+        public void PointerExit() => OnPointerExit?.Invoke();
     }
 }
 

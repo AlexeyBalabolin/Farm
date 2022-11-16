@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034a11587fe4c4541b7f5a958f544ecd, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: 
-  PlantType: 0
-  Name: 
-  Description: 
-  PlantSprite: {fileID: 0}
-  GrowthTime: 0
-  Score: 0
+  Name: "\u0414\u0435\u0440\u0435\u0432\u043E"
+  Description: "\u041A\u0430\u0436\u0434\u044B\u0439 \u043C\u0443\u0436\u0447\u0438\u043D\u0430
+    \u0434\u043E\u043B\u0436\u0435\u043D \u043F\u043E\u0441\u0442\u0440\u043E\u0438\u0442\u044C
+    \u0434\u043E\u043C, \u0432\u044B\u0440\u0430\u0441\u0442\u0438\u0442\u044C \u0441\u044B\u043D\u0430
+    \u0438 \u043F\u043E\u0441\u0430\u0434\u0438\u0442\u044C \u0434\u0435\u0440\u0435\u0432\u043E!
+    \u041C\u043E\u0436\u0435\u0448\u044C \u043F\u043E\u0441\u0430\u0434\u0438\u0442\u044C
+    \u0432\u0438\u0440\u0442\u0443\u0430\u043B\u044C\u043D\u043E\u0435 \u0434\u0435\u0440\u0435\u0432\u043E,
+    \u0442\u043E\u0436\u0435 \u0441\u0447\u0438\u0442\u0430\u0435\u0442\u0441\u044F
+    :)"
+  PlantSprite: {fileID: 21300000, guid: f82dfc5fc3c5a8f4080a3550427019c8, type: 3}
+  GrowthTime: 10
+  Score: 10
   Prefab: {fileID: 0}

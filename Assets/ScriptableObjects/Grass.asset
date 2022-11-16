@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034a11587fe4c4541b7f5a958f544ecd, type: 3}
   m_Name: Grass
   m_EditorClassIdentifier: 
-  PlantType: 0
-  Name: 
-  Description: 
-  PlantSprite: {fileID: 0}
-  GrowthTime: 0
-  Score: 0
-  Prefab: {fileID: 0}
+  Name: "\u0422\u0440\u0430\u0432\u0430"
+  Description: "\u041E\u0431\u044B\u0447\u043D\u0430\u044F \u0442\u0440\u0430\u0432\u0430,
+    \u043D\u0438\u0447\u0435\u0433\u043E \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u043E\u0433\u043E.
+    \u041C\u043E\u0436\u043D\u043E \u0435\u0435 \u0441\u043A\u043E\u0441\u0438\u0442\u044C."
+  PlantSprite: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  GrowthTime: 1
+  Score: 1
+  Prefab: {fileID: 2282848349563403659, guid: 9b876ae15964cbc4ca30121039309bd2, type: 3}

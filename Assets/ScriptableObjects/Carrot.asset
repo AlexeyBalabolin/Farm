@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034a11587fe4c4541b7f5a958f544ecd, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
-  PlantType: 0
-  Name: 
-  Description: 
-  PlantSprite: {fileID: 0}
-  GrowthTime: 0
-  Score: 0
-  Prefab: {fileID: 0}
+  Name: "\u041C\u043E\u0440\u043A\u043E\u0432\u044C"
+  Description: "\u042D\u0442\u043E \u043A\u043B\u0430\u0441\u0441\u043D\u044B\u0439
+    \u043E\u0440\u0430\u043D\u0436\u0435\u0432\u044B\u0439 \u043E\u0432\u043E\u0449!
+    \u0415\u0433\u043E \u043E\u0447\u0435\u043D\u044C \u043B\u044E\u0431\u044F\u0442
+    \u0435\u0441\u0442\u044C \u0437\u0430\u0439\u0446\u044B. \u0410 \u0435\u0449\u0435
+    \u043E\u043D \u0434\u043E\u043B\u0436\u0435\u043D \u0443\u043B\u0443\u0447\u0448\u0430\u0442\u044C
+    \u0437\u0440\u0435\u043D\u0438\u0435. \u041C\u043E\u0440\u043A\u043E\u0432\u044C
+    \u043C\u043E\u0436\u043D\u043E \u0431\u0443\u0434\u0435\u0442 \u0441\u043E\u0431\u0440\u0430\u0442\u044C,
+    \u043A\u043E\u0433\u0434\u0430 \u043E\u043D\u0430 \u0432\u044B\u0440\u0430\u0441\u0442\u0435\u0442"
+  PlantSprite: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+  GrowthTime: 5
+  Score: 5
+  Prefab: {fileID: 4358507804553434206, guid: beec5d14d14f74f449067c969eb4d2ae, type: 3}

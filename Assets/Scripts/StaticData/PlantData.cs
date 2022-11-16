@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Plant", menuName ="Data/Plant")]
 public class PlantData : ScriptableObject
 {
-    public PlantType PlantType;
     public string Name;
     public string Description;
     public Sprite PlantSprite;
