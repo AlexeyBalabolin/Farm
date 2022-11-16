@@ -5,7 +5,7 @@ using Gameplay;
 
 namespace UI
 {
-    public class CellInfoViewer : MonoBehaviour
+    public class PlantInfoViewer : MonoBehaviour
     {
         [SerializeField]
         private GameObject _infoWindow;
@@ -19,13 +19,10 @@ namespace UI
         [SerializeField]
         private Image _plantImage;
 
-        public void ShowInfoWindow(Plant plant, ICellStrategy cellStrategy)
+        public void ShowInfoWindow(Plant plant)
         {
             _infoWindow.SetActive(true);
-            _nameText.text = plant.Name;
-            _descriptionText.text = plant.Description;
-            _plantImage.sprite = plant.PlantSprite;
-            _useButton.onClick.AddListener(cellStrategy.Execute);
+            
         }
     }
 }
