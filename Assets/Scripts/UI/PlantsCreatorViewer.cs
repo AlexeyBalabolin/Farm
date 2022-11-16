@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using BotAI;
 
 namespace UI
 {
@@ -26,6 +27,7 @@ namespace UI
         private Button _grownButton, _closeButton;
 
         private PlantsCreator _plantsCreator;
+        private BotStrategy _botStrategy;
         private IGameFactory _gameFactory;
         private Dictionary<Button, PlantData> _grownPlantDictionary = new Dictionary<Button, PlantData>();
 
@@ -76,6 +78,14 @@ namespace UI
             _gameFactory.CreateGameobjectAtPoint(plantData.Prefab, activeCell.transform);
             activeCell.IsFree = false;
             ClosePlantWindow(activeCell);
+            WalkPlayer(activeCell.transform.position);
+        }
+
+        private void WalkPlayer(Vector3 target)
+        {
+            if (_botStrategy == null)
+                _botStrategy = _gameFactory.Player.GetComponent<BotStrategy>();
+            _botStrategy.Target = target;
         }
 
         private void ClosePlantWindow(Cell activeCell)

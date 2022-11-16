@@ -1,38 +1,25 @@
-﻿using Infrastructure;
-using System;
-using System.Collections;
-using UnityEngine;
+﻿using System;
+using UnityEngine.AI;
 
 namespace BotAI
 {
     public class IdleStrategy : IBotStrategy
     {
         private BotAnimator _botAnimator;
-        private float _lookAroundTime;
+        private NavMeshAgent _navMeshAgent;
         public event Action OnChangeStrategy;
 
-        private ICoroutineRunner _coroutineRunner;
-
-        public IdleStrategy(BotAnimator botAnimator, float lookAroundTime, Action onLookAround, ICoroutineRunner coroutineRunner)
+        public IdleStrategy(NavMeshAgent navMeshAgent, BotAnimator botAnimator)
         {
+            _navMeshAgent = navMeshAgent;
             _botAnimator = botAnimator;
-            _lookAroundTime = lookAroundTime;
-            OnChangeStrategy = onLookAround;
-            _coroutineRunner = coroutineRunner;
         }
 
         public void Execute()
         {
-            _botAnimator.PlayLookAround();
+            _botAnimator.PlayIdle();
             _botAnimator.StopMoving();
-            _coroutineRunner.StartCoroutine(Looking());
-        }
-
-        IEnumerator Looking()
-        {
-            yield return new WaitForSeconds(_lookAroundTime);
-            _botAnimator.StopLookAround();
-            OnChangeStrategy?.Invoke();
+            _navMeshAgent.enabled = false;
         }
     }
 }

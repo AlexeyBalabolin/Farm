@@ -2554,6 +2554,8 @@ GameObject:
   - component: {fileID: 3925870939040732997}
   - component: {fileID: 7939613445251424720}
   - component: {fileID: 1795434220201480954}
+  - component: {fileID: 7829958268830313243}
+  - component: {fileID: 7463970304448974922}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2590,7 +2592,7 @@ Animator:
   m_GameObject: {fileID: 7768853022733555589}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7966d979d9982a743a30e3b75a402b94, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 638134b6e45e39f468f55fe78455ff20, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2632,9 +2634,38 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 3
-  m_BaseOffset: 0
+  m_BaseOffset: 0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7829958268830313243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768853022733555589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1f8108bd474df44a668d5874a189af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 3925870939040732997}
+--- !u!114 &7463970304448974922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768853022733555589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7c625e5b707784b8e6db7888969969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _workingTime: 5
+  _followingSpeed: 1
+  _navMesh: {fileID: 1795434220201480954}
+  _botAnimator: {fileID: 7829958268830313243}
 --- !u!1 &7812538429727321128
 GameObject:
   m_ObjectHideFlags: 0

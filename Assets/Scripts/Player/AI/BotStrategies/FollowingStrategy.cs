@@ -1,7 +1,6 @@
 ﻿using Infrastructure;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,46 +10,32 @@ namespace BotAI
     {
         public event Action OnChangeStrategy;
 
-        protected float _stoppingDistance;
-        protected float _speed;
-        protected NavMeshAgent _navMeshAgent;
-        protected BotAnimator _botAnimator;
-        protected List<GameObject> _targets;
-        protected ICoroutineRunner _coroutineRunner;
-        protected readonly float _checkTime = 0.5f;
-        protected readonly float _distanceEps = 1f;
-
-        private int _targetIndex = 0;
+        private NavMeshAgent _navMeshAgent;
+        private BotAnimator _botAnimator;
+        private Vector3 _target;
+        private ICoroutineRunner _coroutineRunner;
+        private readonly float _checkTime = 0.5f;
+        private readonly float _distanceEps = 0.1f;
 
         public FollowingStrategy()
         {
                 
         }
 
-        public FollowingStrategy(float speed, float stoppingDistance, NavMeshAgent navMeshAgent, BotAnimator botAnimator, 
-            List<GameObject> targets, Action onCameToPoint, ICoroutineRunner coroutineRunner)
+        public FollowingStrategy(NavMeshAgent navMeshAgent, BotAnimator botAnimator, Vector3 target, Action onCameToPoint, ICoroutineRunner coroutineRunner)
         {
-            _speed = speed;
-            _stoppingDistance = stoppingDistance;
             _navMeshAgent = navMeshAgent;
             _botAnimator = botAnimator;
-            _targets = targets;
+            _target = target;
             _coroutineRunner = coroutineRunner;
             OnChangeStrategy = onCameToPoint;
         }
 
         public virtual void Execute()
         {
-            _navMeshAgent.speed = _speed;
-            _navMeshAgent.SetDestination(SelectNextTarget().transform.position);
-            _navMeshAgent.stoppingDistance = _stoppingDistance;
+            _navMeshAgent.enabled = true;
+            _navMeshAgent.SetDestination(_target);
             _coroutineRunner.StartCoroutine(Following());
-        }
-
-        protected virtual GameObject SelectNextTarget()
-        {
-            _targetIndex = _targetIndex < _targets.Count-1 ? _targetIndex + 1 : 0;
-            return _targets[_targetIndex];
         }
 
         protected virtual IEnumerator Following()
@@ -74,6 +59,6 @@ namespace BotAI
             return false;
         }
 
-        protected virtual bool CheckChangeCondition() => _navMeshAgent.remainingDistance <= _stoppingDistance + _distanceEps;
+        protected virtual bool CheckChangeCondition() => Vector3.Distance(_navMeshAgent.transform.position, _target) <= _navMeshAgent.stoppingDistance + _distanceEps;
     }
 }
