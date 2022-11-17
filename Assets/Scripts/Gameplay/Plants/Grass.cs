@@ -1,16 +1,8 @@
-﻿using FX;
-
-namespace Gameplay
+﻿namespace Gameplay
 {
-    public class Grass : Plant
+    public class Grass : ActivatedPlant
     {
-        protected override void ActivatePlant()
-        {
-            Cell cell = GetComponentInParent<Cell>();
-            cell.IsFree = true;
-            _gameFactory.FxPooler.GetComponent<FxPooler>().PlayEffectByType(EffectType.DestroyPlant, transform.position);
-            Destroy(gameObject);
-        }
+        protected override void ActivatePlant() => base.ActivatePlant();
     }
 }
 

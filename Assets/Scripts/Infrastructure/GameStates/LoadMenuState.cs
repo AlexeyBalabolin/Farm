@@ -1,4 +1,5 @@
-﻿using GlobalConstants;
+﻿using Audio;
+using GlobalConstants;
 using Infrastructure.Factory;
 using Infrastructure.Services;
 using UI;
@@ -22,6 +23,10 @@ namespace Infrastructure.GameStates
 
             GameObject menu = _gameFactory.CreateFromResource(ResourcesConstants.MENU);
             menu.GetComponent<MainMenu>().Construct(_gameStateMachine, _saveLoadService);
+
+            GameObject audio = _gameFactory.CreateFromResource(ResourcesConstants.AUDIO);
+            _gameFactory.Audio = audio;
+            audio.GetComponent<AudioPlayer>().PlayMusic();
         }
 
         public override void Enter()

@@ -8,6 +8,7 @@
         public const string HUD = "Hud";
         public const string MAP = "MapGenerator";
         public const string POOLER = "FxPooler";
+        public const string AUDIO = "Audio";
     }
 }
 

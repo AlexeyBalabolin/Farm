@@ -66,6 +66,7 @@ namespace Infrastructure.GameStates
             GameObject camera = _gameFactory.CreateFromResource(ResourcesConstants.CAMERA);
             _gameFactory.Camera = camera;
             camera.transform.position = player.transform.position + camera.GetComponent<CameraOffset>().OffsetVector;
+            camera.transform.position += new Vector3(_gameFactory.MapSize.x/2, 0, -_gameFactory.MapSize.y/2);
 
             GameObject hud = _gameFactory.CreateFromResource(ResourcesConstants.HUD);
             _gameFactory.Hud = hud;

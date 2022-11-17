@@ -14,6 +14,8 @@ namespace Infrastructure.Factory
 
         GameObject FxPooler { get; set; }
 
+        GameObject Audio { get; set; }
+
         Vector2 MapSize { get; set; }
 
         GameObject CreateGameobject(GameObject prefab);

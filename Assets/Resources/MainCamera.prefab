@@ -361,4 +361,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a751c6a221f7dde41a8c8b5ad9c41c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offsetVector: {x: 3, y: 4.2, z: -5}
+  _offsetVector: {x: 0, y: 4.2, z: -3}

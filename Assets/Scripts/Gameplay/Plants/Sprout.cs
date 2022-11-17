@@ -1,3 +1,4 @@
+using Audio;
 using FX;
 using Infrastructure.Factory;
 using Infrastructure.Services;
@@ -32,6 +33,7 @@ namespace Gameplay
         {
             CurrentValue = 0;
             MaxValue = grownTime;
+            _gameFactory.Audio.GetComponent<AudioPlayer>().PlayAudioType(Audio.AudioType.GrownPlant);
             while (CurrentValue <= MaxValue)
             {
                 yield return new WaitForSeconds(1);

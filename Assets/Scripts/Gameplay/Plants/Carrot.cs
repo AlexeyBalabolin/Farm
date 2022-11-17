@@ -1,21 +1,11 @@
-﻿using FX;
-
-namespace Gameplay
+﻿namespace Gameplay
 {
-    public class Carrot : Plant
+    public class Carrot : ActivatedPlant
     {
-        private bool _isTaken = false;
         protected override void ActivatePlant()
         {
-            if(!_isTaken)
-            {
-                Cell cell = GetComponentInParent<Cell>();
-                cell.IsFree = true;
-                _scoreService.AddCarrot();
-                _isTaken = false;
-                _gameFactory.FxPooler.GetComponent<FxPooler>().PlayEffectByType(EffectType.DestroyPlant, transform.position);
-                _gameFactory.DestroyObject(gameObject);
-            }
+            base.ActivatePlant();
+            _scoreService.AddCarrot();
         }
     }
 }
