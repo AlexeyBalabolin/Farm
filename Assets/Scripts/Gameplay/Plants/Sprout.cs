@@ -1,4 +1,5 @@
 using Infrastructure.Factory;
+using Infrastructure.Services;
 using System;
 using System.Collections;
 using UI;
@@ -15,7 +16,13 @@ namespace Gameplay
 
         public event Action OnValueChanged;
 
-        public void StartGrown(float grownTime, PlantData plantData, IGameFactory gameFactory) => StartCoroutine(Growing(grownTime, plantData, gameFactory));
+        private IScoreService _scoreService;
+
+        public void StartGrown(float grownTime, PlantData plantData, IGameFactory gameFactory)
+        {
+            _scoreService = ServiceLocator.Container.GetService<IScoreService>();
+            StartCoroutine(Growing(grownTime, plantData, gameFactory));
+        }
 
         private IEnumerator Growing(float grownTime, PlantData plantData, IGameFactory gameFactory)
         {
@@ -29,6 +36,7 @@ namespace Gameplay
             }
             Plant plant = gameFactory.CreateGameobjectAtPoint(plantData.PlantPrefab, transform.parent).GetComponent<Plant>();
             plant.Construct(plantData);
+            _scoreService.AddScore(plantData.Score);
             gameFactory.DestroyObject(gameObject);
         }
     }

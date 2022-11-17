@@ -73,9 +73,6 @@ namespace Infrastructure.GameStates
             MapGenerator mapGenerator = _gameFactory.CreateFromResource(ResourcesConstants.MAP).GetComponent<MapGenerator>();
             mapGenerator.GenerateMap(5, 5);
 
-            PlantsCreator plants = ServiceLocator.Container.GetService<PlantsCreator>();
-            _gameFactory.AddProgressSaver(plants);
-
             FindAllSavers();
         }
 

@@ -38,6 +38,7 @@ namespace Infrastructure.GameStates
             _serviceLocator.RegisterService<IAssetProvider>(implementation: new AssetProvider());
             _serviceLocator.RegisterService<IGameFactory>(implementation: new GameFactory(_serviceLocator.GetService<IAssetProvider>()));
             _serviceLocator.RegisterService<ISaveLoadService>(implementation: new SaveLoadService(_serviceLocator.GetService<IGameFactory>()));
+            _serviceLocator.RegisterService<IScoreService>(implementation: new ScoreService());
             _serviceLocator.RegisterService(implementation: new PlantsCreator(_plantsList));
             _serviceLocator.RegisterService(implementation: new EventBus());
         }

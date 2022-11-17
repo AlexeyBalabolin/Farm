@@ -4,7 +4,7 @@ using Infrastructure.Data;
 
 namespace Infrastructure.Services
 {
-    public class PlantsCreator:IService, ISavedProgress
+    public class PlantsCreator:IService
     {
         public event Action OnActiveCellSelected;
 
@@ -22,11 +22,6 @@ namespace Infrastructure.Services
         }
 
         public PlantsCreator(AllPlants plantsList) => PlantsList = plantsList;
-
-        public void SaveProgress(PlayerProgress progress) { }
-
-
-        public void LoadProgress(PlayerProgress progress) { }
     }
 }
 
