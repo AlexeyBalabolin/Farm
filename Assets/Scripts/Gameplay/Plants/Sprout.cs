@@ -1,3 +1,4 @@
+using FX;
 using Infrastructure.Factory;
 using Infrastructure.Services;
 using System;
@@ -10,6 +11,7 @@ namespace Gameplay
     public class Sprout : MonoBehaviour, IBar
     {
         private float _currentTime, _maxTime;
+        private IGameFactory _gameFactory;
 
         public float CurrentValue { get => _currentTime; set => _currentTime = value; }
         public float MaxValue { get => _maxTime; set => _maxTime = value; }
@@ -20,6 +22,8 @@ namespace Gameplay
 
         public void StartGrown(float grownTime, PlantData plantData, IGameFactory gameFactory)
         {
+            _gameFactory = ServiceLocator.Container.GetService<IGameFactory>();
+            _gameFactory.FxPooler.GetComponent<FxPooler>().PlayEffectByType(EffectType.CreateSprout, transform.position);
             _scoreService = ServiceLocator.Container.GetService<IScoreService>();
             StartCoroutine(Growing(grownTime, plantData, gameFactory));
         }

@@ -1,8 +1,8 @@
-﻿using GlobalConstants;
+﻿using FX;
+using GlobalConstants;
 using Infrastructure.Factory;
 using Infrastructure.Services;
 using Player;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -69,6 +69,10 @@ namespace Infrastructure.GameStates
 
             GameObject hud = _gameFactory.CreateFromResource(ResourcesConstants.HUD);
             _gameFactory.Hud = hud;
+
+            GameObject fxPooler = _gameFactory.CreateFromResource(ResourcesConstants.POOLER);
+            _gameFactory.FxPooler = fxPooler;
+            fxPooler.GetComponent<FxPooler>().InitalizeEffects();
 
             MapGenerator mapGenerator = _gameFactory.CreateFromResource(ResourcesConstants.MAP).GetComponent<MapGenerator>();
             mapGenerator.GenerateMap(5, 5);

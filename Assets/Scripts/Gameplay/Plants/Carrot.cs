@@ -1,4 +1,6 @@
-﻿namespace Gameplay
+﻿using FX;
+
+namespace Gameplay
 {
     public class Carrot : Plant
     {
@@ -11,6 +13,7 @@
                 cell.IsFree = true;
                 _scoreService.AddCarrot();
                 _isTaken = false;
+                _gameFactory.FxPooler.GetComponent<FxPooler>().PlayEffectByType(EffectType.DestroyPlant, transform.position);
                 _gameFactory.DestroyObject(gameObject);
             }
         }

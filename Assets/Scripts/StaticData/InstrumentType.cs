@@ -2,5 +2,5 @@
 {
     None,
     Braid,
-    Hands
+    Bucket
 }

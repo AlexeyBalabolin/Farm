@@ -12,6 +12,8 @@ namespace Infrastructure.Factory
 
         GameObject Hud { get; set; }
 
+        GameObject FxPooler { get; set; }
+
         GameObject CreateGameobject(GameObject prefab);
 
         GameObject CreateGameobjectAtPoint(GameObject prefab, Transform spawnPoint);

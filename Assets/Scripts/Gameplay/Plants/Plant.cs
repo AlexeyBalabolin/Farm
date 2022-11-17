@@ -1,3 +1,4 @@
+using FX;
 using Infrastructure.Factory;
 using Infrastructure.Services;
 using System;
@@ -21,6 +22,7 @@ namespace Gameplay
             Score = plantData.Score;
             _scoreService = ServiceLocator.Container.GetService<IScoreService>();
             _gameFactory = ServiceLocator.Container.GetService<IGameFactory>();
+            _gameFactory.FxPooler.GetComponent<FxPooler>().PlayEffectByType(EffectType.GrownPlant, transform.position);
         }
 
         public void PointerEnter(InstrumentType instrumentType)

@@ -7,6 +7,7 @@
         public const string CAMERA = "MainCamera";
         public const string HUD = "Hud";
         public const string MAP = "MapGenerator";
+        public const string POOLER = "FxPooler";
     }
 }
 
