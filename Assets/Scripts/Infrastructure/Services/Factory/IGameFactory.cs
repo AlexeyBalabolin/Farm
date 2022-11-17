@@ -8,6 +8,10 @@ namespace Infrastructure.Factory
     {
         GameObject Player { get; set; }
 
+        GameObject Camera { get; set; }
+
+        GameObject Hud { get; set; }
+
         GameObject CreateGameobject(GameObject prefab);
 
         GameObject CreateGameobjectAtPoint(GameObject prefab, Transform spawnPoint);

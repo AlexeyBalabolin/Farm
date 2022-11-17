@@ -84,7 +84,7 @@ namespace UI
             _botStrategy.OnEndPlanting.AddListener( () => 
             { 
                 Sprout sprout = _gameFactory.CreateGameobjectAtPoint(plantData.SproutPrefab, activeCell.transform).GetComponent<Sprout>();
-                sprout.StartGrown(plantData.GrowthTime, plantData.PlantPrefab, _gameFactory);
+                sprout.StartGrown(plantData.GrowthTime, plantData, _gameFactory);
             });
         }
 

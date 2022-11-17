@@ -11,5 +11,13 @@ public class CellData
     [SerializeField]
     private GameObject _cellPrefab;
 
+    [SerializeField]
+    private GameObject _borderPrefab;
+
+    [SerializeField]
+    private GameObject _entryPrefab;
+
     public GameObject CellPrefab { get => _cellPrefab; }
+    public GameObject BorderPrefab { get => _borderPrefab; }
+    public GameObject EntryPrefab { get => _entryPrefab; }
 }

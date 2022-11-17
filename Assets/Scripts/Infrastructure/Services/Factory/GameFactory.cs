@@ -7,7 +7,7 @@ namespace Infrastructure.Factory
     public class GameFactory : IGameFactory
     {
         private IAssetProvider _assetProvider;
-        private GameObject _player;
+        private GameObject _player, _hud, _camera;
 
         public GameObject Player 
         {
@@ -16,6 +16,18 @@ namespace Infrastructure.Factory
             {
                 _player = value;
             }
+        }
+
+        public GameObject Hud
+        {
+            get => _hud;
+            set => _hud = value;
+        }
+
+        public GameObject Camera
+        {
+            get => _camera;
+            set => _camera = value;
         }
 
         public GameFactory(IAssetProvider assetProvider)

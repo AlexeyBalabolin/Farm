@@ -2,7 +2,7 @@
 {
     public interface IPointerEnter
     {
-        void PointerEnter();
+        void PointerEnter(InstrumentType instrumentType);
     }
 }
 

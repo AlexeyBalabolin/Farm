@@ -10,4 +10,5 @@ public class PlantData : ScriptableObject
     public int Score;
     public GameObject PlantPrefab;
     public GameObject SproutPrefab;
+    public InstrumentType InstrumentType;
 }

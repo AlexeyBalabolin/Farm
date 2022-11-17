@@ -1,6 +1,7 @@
 ﻿using GlobalConstants;
 using Infrastructure.Factory;
 using Infrastructure.Services;
+using Player;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -62,7 +63,15 @@ namespace Infrastructure.GameStates
             GameObject player = _gameFactory.CreateFromResource(ResourcesConstants.PLAYER);
             _gameFactory.Player = player;
 
+            GameObject camera = _gameFactory.CreateFromResource(ResourcesConstants.CAMERA);
+            _gameFactory.Camera = camera;
+            camera.transform.position = player.transform.position + camera.GetComponent<CameraOffset>().OffsetVector;
+
             GameObject hud = _gameFactory.CreateFromResource(ResourcesConstants.HUD);
+            _gameFactory.Hud = hud;
+
+            MapGenerator mapGenerator = _gameFactory.CreateFromResource(ResourcesConstants.MAP).GetComponent<MapGenerator>();
+            mapGenerator.GenerateMap(5, 5);
 
             PlantsCreator plants = ServiceLocator.Container.GetService<PlantsCreator>();
             _gameFactory.AddProgressSaver(plants);

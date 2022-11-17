@@ -5,10 +5,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField]
     private CellData CellData;
 
-    void Start()
-    {
-        GenerateMap(3,3);
-    }
+    private bool _entryCellCreated = false;
 
     public void GenerateMap(int width, int height)
     {
@@ -19,7 +16,14 @@ public class MapGenerator : MonoBehaviour
         {    
             for(int j = 0; j < width; j++)
             {
-                GameObject currentCell = Instantiate(CellData.CellPrefab, new Vector3(xOffset, 0, yOffset), Quaternion.identity);
+                GameObject currentCell = (i == 0 || j == 0  || i== height-1 || j == width-1) ? CellData.BorderPrefab : 
+                    _entryCellCreated ? CellData.CellPrefab : CellData.EntryPrefab;
+
+                if (currentCell == CellData.EntryPrefab)
+                    _entryCellCreated = true;
+
+                Instantiate(currentCell, new Vector3(xOffset, 0, yOffset), Quaternion.identity);
+
                 xOffset += CellData.X_OFFSET;
             }
             xOffset = i % 2 == 0 ? CellData.X_OFFSET/2 : 0;

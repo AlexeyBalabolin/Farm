@@ -3,30 +3,26 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public abstract class Plant : MonoBehaviour, IClickable
+    public abstract class Plant : MonoBehaviour, IPointerEnter
     {
         public event Action OnClick;
 
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public float GrowthTime { get; private set; }
-        public Sprite PlantSprite { get; private set; }
+        public InstrumentType InstrumentType { get; private set; }
         public int Score { get; private set; }
 
         public void Construct(PlantData plantData)
         {
-            Name = plantData.Name;
-            Description = plantData.Description;
-            GrowthTime = plantData.GrowthTime;
-            PlantSprite = plantData.PlantSprite;
+            InstrumentType = plantData.InstrumentType;
             Score = plantData.Score;
         }
-        public void Click() => OnClick?.Invoke();
-    }
 
-    public class Grass : Plant
-    {
+        public void PointerEnter(InstrumentType instrumentType)
+        {
+            if (instrumentType == InstrumentType)
+                ActivatePlant();
+        }
 
+        protected abstract void ActivatePlant();
     }
 }
 
