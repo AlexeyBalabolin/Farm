@@ -1,6 +1,7 @@
 ﻿using GlobalConstants;
 using Infrastructure.Factory;
 using Infrastructure.Services;
+using UI;
 using UnityEngine;
 
 namespace Infrastructure.GameStates

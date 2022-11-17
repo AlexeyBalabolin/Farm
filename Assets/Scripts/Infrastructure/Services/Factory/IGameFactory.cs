@@ -14,6 +14,8 @@ namespace Infrastructure.Factory
 
         GameObject FxPooler { get; set; }
 
+        Vector2 MapSize { get; set; }
+
         GameObject CreateGameobject(GameObject prefab);
 
         GameObject CreateGameobjectAtPoint(GameObject prefab, Transform spawnPoint);

@@ -75,7 +75,7 @@ namespace Infrastructure.GameStates
             fxPooler.GetComponent<FxPooler>().InitalizeEffects();
 
             MapGenerator mapGenerator = _gameFactory.CreateFromResource(ResourcesConstants.MAP).GetComponent<MapGenerator>();
-            mapGenerator.GenerateMap(5, 5);
+            mapGenerator.GenerateMap(_gameFactory.MapSize);
 
             FindAllSavers();
         }

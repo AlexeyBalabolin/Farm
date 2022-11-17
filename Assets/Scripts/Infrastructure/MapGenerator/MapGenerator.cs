@@ -7,16 +7,16 @@ public class MapGenerator : MonoBehaviour
 
     private bool _entryCellCreated = false;
 
-    public void GenerateMap(int width, int height)
+    public void GenerateMap(Vector2 mapSize)
     {
         float xOffset = 0;
         float yOffset = 0;
 
-        for (int i = 0; i < height; i++)
+        for (int i = 0; i < mapSize.y; i++)
         {    
-            for(int j = 0; j < width; j++)
+            for(int j = 0; j < mapSize.x; j++)
             {
-                GameObject currentCell = (i == 0 || j == 0  || i== height-1 || j == width-1) ? CellData.BorderPrefab : 
+                GameObject currentCell = (i == 0 || j == 0  || i== mapSize.y-1 || j == mapSize.x-1) ? CellData.BorderPrefab : 
                     _entryCellCreated ? CellData.CellPrefab : CellData.EntryPrefab;
 
                 if (currentCell == CellData.EntryPrefab)

@@ -9,6 +9,8 @@ namespace Infrastructure.Factory
         private IAssetProvider _assetProvider;
         private GameObject _player, _hud, _camera, _fxPooler;
 
+        public Vector2 MapSize { get; set; }
+
         public GameObject Player 
         {
             get => _player;
